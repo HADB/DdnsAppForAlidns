@@ -1,5 +1,7 @@
 # README
 
+
+
 ## 配置
 
 ```xml
@@ -31,3 +33,9 @@
 ## 项目结构
 
 由于阿里云的.net SDK在nuget上并没有统一的官方包，所以我是下载的[Open API SDK for .Net developers](https://github.com/aliyun/aliyun-openapi-net-sdk) 在本地引用的，需要编译的同学可以下载下来，重新链接下，用到了[aliyun-net-sdk-core](https://github.com/aliyun/aliyun-openapi-net-sdk/tree/master/aliyun-net-sdk-core) 和 [aliyun-net-sdk-alidns](https://github.com/aliyun/aliyun-openapi-net-sdk/tree/master/aliyun-net-sdk-alidns) 这两个项目。
+
+
+
+## 下载地址
+
+[DdnsAppForAlidns-1.0.0.zip](https://github.com/HADB/DdnsAppForAlidns/releases/download/1.0.0/DdnsAppForAlidns-1.0.0.zip)
