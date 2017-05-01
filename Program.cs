@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
 using System.Net;
@@ -91,10 +92,29 @@ namespace DdnsAppForAlidns
 
         static void AddRecord()
         {
+            var domainParts = currentDomain.Split('.');
+            var rr = "@";
+            var domainName = currentDomain;
+            if (domainParts.Length >= 3)
+            {
+                var rrParts = new List<string>();
+                for (var i = 0; i < domainParts.Length - 2; i++)
+                {
+                    rrParts.Add(domainParts[i]);
+                }
+                rr = string.Join(".", rrParts);
+
+                var domainNameParts = new List<String>();
+                for (var i = domainParts.Length - 2; i < domainParts.Length; i++)
+                {
+                    domainNameParts.Add(domainParts[i]);
+                }
+                domainName = string.Join(".", domainNameParts);
+            }
             var request = new AddDomainRecordRequest
             {
-                RR = currentDomain.Split('.')[0],
-                DomainName = currentDomain.Substring(currentDomain.IndexOf('.') + 1),
+                RR = rr,
+                DomainName = domainName,
                 Type = "A",
                 Value = currentIp,
                 TTL = ttl
