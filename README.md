@@ -14,7 +14,7 @@
         <add key="regionId" value="cn-hangzhou" />
         <add key="accessKeyId" value="你的AccessKeyId" />
         <add key="accessKeySecret" value="你的AccessKeySecret" />
-        <add key="domains" value="test1.yourdomain.com,test2.yourdomain.com" />
+        <add key="domains" value="yourdomain.com,test.yourdomain.com,subtest.test.yourdomain.com" />
         <add key="ttl" value="60" />
     </appSettings>
 </configuration>
