@@ -7,7 +7,6 @@ using System.Text;
 using Aliyun.Acs.Alidns.Model.V20150109;
 using Aliyun.Acs.Core;
 using Aliyun.Acs.Core.Profile;
-using Newtonsoft.Json;
 using NLog;
 using static Aliyun.Acs.Alidns.Model.V20150109.DescribeSubDomainRecordsResponse;
 
@@ -70,16 +69,17 @@ namespace DdnsAppForAlidns
         {
             try
             {
-                using (var response = WebRequest.Create("http://api.monkeyrun.net/api/public/ip").GetResponse())
+                using (var response = WebRequest.Create("http://www.ip138.com/ip2city.asp").GetResponse())
                 {
                     using (var reader = new StreamReader(response.GetResponseStream(), Encoding.UTF8))
                     {
-                        var result = JsonConvert.DeserializeObject<GetIpResult>(reader.ReadToEnd());
-
-                        if (result.Success)
-                        {
-                            return result.IpAddress;
-                        }
+                        var resultStr = reader.ReadToEnd();
+                        var startIndex = resultStr.IndexOf("[") + 1;
+                        var endIndex = resultStr.IndexOf("]") - 1;
+                        var result = resultStr.Substring(startIndex, endIndex - startIndex + 1);
+                        response.Close();
+                        reader.Close();
+                        return result;
                     }
                 }
             }
