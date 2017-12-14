@@ -38,4 +38,4 @@
 
 ## 下载地址
 
-[DdnsAppForAlidns-1.1.0.zip](https://github.com/HADB/DdnsAppForAlidns/releases/download/1.1.0/DdnsAppForAlidns-1.1.0.zip)
+[DdnsAppForAlidns-1.2.0.zip](https://github.com/HADB/DdnsAppForAlidns/releases/download/1.2.0/DdnsAppForAlidns-1.2.0.zip)
